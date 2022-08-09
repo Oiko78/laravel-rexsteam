@@ -4,18 +4,18 @@
 @section('main')
     <main class="space-y-5 p-5">
         <div class="flex flex-row space-x-5 font-semibold leading-4 text-gray-500">
-            <img src="" class="aspect-square h-5 w-5 bg-white" alt="">
-            <img src="" class="aspect-square h-5 w-5 bg-white" alt="">
+            <img class="aspect-square h-5 w-5 bg-white" src="" alt="">
+            <img class="aspect-square h-5 w-5 bg-white" src="" alt="">
             <p class="">{{ $game->category['name'] }}</p>
-            <img src="" class="aspect-square h-5 w-5 bg-white" alt="">
+            <img class="aspect-square h-5 w-5 bg-white" src="" alt="">
             <p class="">{{ $game['name'] }}</p>
         </div>
         <div class="flex space-x-4">
             <div class="w-[70%] rounded-lg">
-                <iframe src="{{ $game['trailer'] }}" frameborder="0" class="aspect-video w-full rounded-lg"></iframe>
+                <iframe class="aspect-video w-full rounded-lg" src="{{ $game['trailer'] }}" frameborder="0"></iframe>
             </div>
             <div class="w-[30%] space-y-3 text-gray-600">
-                <img src="{{ $game['cover'] }}" alt="{{ $game['title'] }}" class="w-full rounded-lg">
+                <img class="w-full rounded-lg" src="{{ $game['cover'] }}" alt="{{ $game['title'] }}">
                 <h1 class="text-xl font-bold text-gray-800">{{ $game['name'] }}</h1>
                 <p class="overflow-hidden"
                    style="display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">
