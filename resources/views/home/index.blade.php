@@ -13,9 +13,7 @@
         </div>
         <div class="flex flex-wrap">
             @forelse($games as $game)
-                <x-card id="{{ $game['id'] }}" url="{{ $game['cover'] }}" title="{{ $game['name'] }}"
-                        genre="{{ $game->category['name'] }}">
-                </x-card>
+                <x-card.game :game="$game"></x-card.game>
             @empty
                 <p class="pl-3 text-lg font-light">There are no games content can be showed right now</p>
             @endforelse
