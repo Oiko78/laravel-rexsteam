@@ -6,5 +6,5 @@
                 $bgColor,
             'type' => 'button',
         ]) }}>
-  {{ ($slot != '' ? $slot : $attributes['text']) ?? '' }}
+    {{ ($slot != '' ? $slot : $attributes['text']) ?? '' }}
 </button>
