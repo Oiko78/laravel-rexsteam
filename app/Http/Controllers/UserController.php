@@ -15,7 +15,7 @@ class UserController extends Controller {
 
     public function store(Request $request) {
         $data = $request->validate([
-            "name" => ["required", "unique:user,name", "min:6"],
+            "name" => ["required", "unique:users,name", "min:6"],
             "first_name" => ["required"],
             "last_name" => [],
             "password" => ["required", "alpha_num", "min:6", "confirmed"],
@@ -24,10 +24,11 @@ class UserController extends Controller {
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
 
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('message', 'Register succesfull!');
+        return redirect('/login')->with('message', 'Register succesfull!')->with("success", true);
     }
 
     public function login() {
@@ -41,7 +42,7 @@ class UserController extends Controller {
         ]);
         if (Auth::attempt($data, $request['remember'])) {
             $request->session()->regenerate();
-            return redirect("/")->with('message', 'Login Succesfull!');
+            return redirect("/")->with('message', 'Login Succesfull!')->with("success", true);
         }
 
         return back()->withErrors(["name" => "Invalid Credentials"])->onlyInput('email');
@@ -53,6 +54,6 @@ class UserController extends Controller {
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('message', 'You have been logged out!');
+        return redirect('/')->with('message', 'You have been logged out!')->with("success", true);
     }
 }
